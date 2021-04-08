@@ -25,6 +25,7 @@ console.log("DB Connection Error",error);
 //middleware
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.json());
 
 
 //route middleware
