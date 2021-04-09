@@ -1,8 +1,9 @@
-import {useState,useEffect} from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import queryString from 'query-string';
 import {Link} from 'react-router-dom';
 import Search from "../Components/forms/Search";
 import {searchListings} from "../actions/hotel";
+import SmallCard from "../Components/cards/SmallCard";
 
 const SearchReasult = () =>{
 
@@ -24,12 +25,22 @@ const SearchReasult = () =>{
         })
     },[window.location.search]);
     return(
+        <Fragment>
+            <div className="col">
+                <br/>
+                <Search/>
+            </div>
+
         <div className="container">
+
             <div className="row">
-                {JSON.stringify(hotels,null,4)}
+                {
+                    hotels.map(h=><SmallCard key={h._id} h={h}/>)
+                }
 
             </div>
         </div>
+        </Fragment>
     )
 }
 
