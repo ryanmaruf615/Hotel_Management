@@ -92,3 +92,13 @@ export const sellerHotels = async (req , res ) =>{
     }
 
  };
+
+ export const searchListings = async (req,res) =>{
+     const {location , date, bed} = req.body;
+     //console.log(location , date, bed);
+    let result = await Hotel.find({location,bed,})
+    .select("-image.data")
+    .exec();
+   console.log("ami response result",result);
+   res.json(result);
+ };

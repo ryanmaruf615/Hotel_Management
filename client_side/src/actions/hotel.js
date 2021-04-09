@@ -38,4 +38,9 @@ export const updateHotel = async (token,data,hotelId) =>
         },
     });
 
+export const searchListings = async (query) =>
+    await axios.post(`${process.env.REACT_APP_API}/search-listening`, query);
+
+
+
 
